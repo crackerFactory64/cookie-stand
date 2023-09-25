@@ -15,14 +15,41 @@ for (let i = 6; i <= 19; i++) {
   tokyo.hourlySales.push(Math.round(tokyo.avgSale * tokyo.generateCustomers()));
 }
 
-/*
-  Store the min/max hourly customers, and the average cookies per customer, in object properties. (DONE)
+const salesEl = document.getElementById("sales");
 
-  Use a method of that object to generate a random number of customers per hour. Objects/Math/random{:target="_blank"} (DONE)
+const tokyoEl = document.createElement("article");
 
-  Calculate and store the simulated amounts of cookies purchased for each hour at each location using average cookies purchased and the random number of customers generated. (DONE)
+const h2 = document.createElement("h2");
+h2.textContent = "Tokyo";
+tokyoEl.appendChild(h2);
 
-  Store the results for each location in a separate array... perhaps as a property of the object representing that location. (DONE)
+const ul = document.createElement("ul");
 
-  Display the values of each array as unordered lists in the browser.
-*/
+function formatTime(num) {
+  if (num < 1000) {
+    return `0${num}`;
+  } else {
+    return num;
+  }
+}
+
+for (let i = 0; i < tokyo.hourlySales.length; i++) {
+  time = 600 + i * 100;
+  const li = document.createElement("li");
+  li.innerText = `${formatTime(time)}: ${tokyo.hourlySales[i]}`;
+  ul.appendChild(li);
+}
+
+//add total sum
+const li = document.createElement("li");
+let total = 0;
+for (let i = 0; i < tokyo.hourlySales.length; i++) {
+  total += tokyo.hourlySales[i];
+}
+li.textContent = `Total: ${total}`;
+ul.appendChild(li);
+
+tokyoEl.appendChild(ul);
+
+//finally add full article element to document
+salesEl.appendChild(tokyoEl);
