@@ -81,19 +81,23 @@ const hours = [
 
 // create our first shop
 const seattle = {
-  location: "seattle",
+  location: "Seattle",
   minCust: 23,
   maxCust: 65,
   avgCookiesPerCust: 6.3,
   customersPerHour: [],
   cookiesPerHour: [],
-  totalCookieSold: 0,
+  totalCookiesSold: 0,
   calculateSales: function () {
+    let total = 0;
     for (let i = 0; i < hours.length; i++) {
       const customers = randomNumber(this.minCust, this.maxCust);
+      const cookiesSold = Math.floor(customers * this.avgCookiesPerCust) + 1;
       this.customersPerHour.push(customers);
-      this.cookiesPerHour.push(customers * this.avgCookiesPerCust);
+      this.cookiesPerHour.push(cookiesSold);
+      total += cookiesSold;
     }
+    this.totalCookiesSold = total;
   },
 };
 
@@ -101,3 +105,37 @@ const seattle = {
 function randomNumber(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
+
+// Code-along ends
+
+// displaying the data
+
+function displaySalesData(location) {
+  location.calculateSales();
+
+  const salesEl = document.getElementById("sales");
+  const article = document.createElement("article");
+
+  const h2 = document.createElement("h2");
+  h2.textContent = location.location;
+  article.appendChild(h2);
+
+  //looping through cookiesPerHour to populate ul with li elements
+  const ul = document.createElement("ul");
+  for (let i = 0; i < location.cookiesPerHour.length; i++) {
+    const li = document.createElement("li");
+    li.innerText = `${hours[i]}: ${location.cookiesPerHour[i]} cookies`;
+    ul.appendChild(li);
+  }
+
+  //add total sum to end of ul
+  const li = document.createElement("li");
+  li.textContent = `Total: ${location.totalCookiesSold}`;
+  ul.appendChild(li);
+  article.appendChild(ul);
+
+  //finally add full article element to document
+  salesEl.appendChild(article);
+}
+
+displaySalesData(seattle);
