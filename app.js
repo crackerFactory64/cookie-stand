@@ -1,4 +1,6 @@
-/* My attempt 
+/* 
+
+My attempt 
 
 const tokyo = {
   minCustomers: 3,
@@ -14,7 +16,7 @@ const tokyo = {
 };
 
 for (let i = 6; i <= 19; i++) {
-  tokyo.hourlySales.push(Math.round(tokyo.avgSale * tokyo.generateCustomers()));
+  tokyo.hourlySales.push(Math.floor(tokyo.avgSale * tokyo.generateCustomers()) + 1);
 }
 
 const salesEl = document.getElementById("sales");
@@ -38,7 +40,7 @@ function formatTime(num) {
 for (let i = 0; i < tokyo.hourlySales.length; i++) {
   time = 600 + i * 100;
   const li = document.createElement("li");
-  li.innerText = `${formatTime(time)}: ${tokyo.hourlySales[i]}`;
+  li.innerText = `${formatTime(time)}: ${tokyo.hourlySales[i]} cookies`;
   ul.appendChild(li);
 }
 
@@ -58,7 +60,7 @@ salesEl.appendChild(tokyoEl);
 
 */
 
-//code along
+//Code-along
 
 const hours = [
   "6am",
@@ -80,13 +82,19 @@ const hours = [
 // create our first shop
 const seattle = {
   location: "seattle",
+  minCust: 23,
+  maxCust: 65,
   avgCookiesPerCust: 6.3,
-  customersPerHour: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
-  cookiesPerHour: [
-    6.3, 12.6, 18.9, 25.2, 31.5, 37.8, 44.1, 50.4, 56.7, 63, 69.3, 75.6, 81.9,
-    88.2,
-  ],
-  totalCookieSold: 661.5,
+  customersPerHour: [],
+  cookiesPerHour: [],
+  totalCookieSold: 0,
+  calculateSales: function () {
+    for (let i = 0; i < hours.length; i++) {
+      const customers = randomNumber(this.minCust, this.maxCust);
+      this.customersPerHour.push(customers);
+      this.cookiesPerHour.push(customers * this.avgCookiesPerCust);
+    }
+  },
 };
 
 // give a random number between two numbers
