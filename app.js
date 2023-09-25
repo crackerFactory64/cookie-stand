@@ -130,7 +130,7 @@ function displaySalesData(location) {
 
   //add total sum to end of ul
   const li = document.createElement("li");
-  li.textContent = `Total: ${location.totalCookiesSold}`;
+  li.textContent = `Total: ${location.totalCookiesSold} cookies`;
   ul.appendChild(li);
   article.appendChild(ul);
 
