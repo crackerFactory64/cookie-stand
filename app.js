@@ -1,3 +1,5 @@
+/* My attempt 
+
 const tokyo = {
   minCustomers: 3,
   maxCustomers: 24,
@@ -53,3 +55,41 @@ tokyoEl.appendChild(ul);
 
 //finally add full article element to document
 salesEl.appendChild(tokyoEl);
+
+*/
+
+//code along
+
+const hours = [
+  "6am",
+  "7am",
+  "8am",
+  "9am",
+  "10am",
+  "11am",
+  "12pm",
+  "1pm",
+  "2pm",
+  "3pm",
+  "4pm",
+  "5pm",
+  "6pm",
+  "7pm",
+];
+
+// create our first shop
+const seattle = {
+  location: "seattle",
+  avgCookiesPerCust: 6.3,
+  customersPerHour: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14],
+  cookiesPerHour: [
+    6.3, 12.6, 18.9, 25.2, 31.5, 37.8, 44.1, 50.4, 56.7, 63, 69.3, 75.6, 81.9,
+    88.2,
+  ],
+  totalCookieSold: 661.5,
+};
+
+// give a random number between two numbers
+function randomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
