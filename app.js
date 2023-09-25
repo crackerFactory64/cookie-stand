@@ -80,6 +80,34 @@ const hours = [
 ];
 
 // create our first shop
+/*const seattle = {
+  location: "Seattle",
+  minCust: 23,
+  maxCust: 65,
+  avgCookiesPerCust: 6.3,
+  customersPerHour: [],
+  cookiesPerHour: [],
+  totalCookiesSold: 0,
+  calculateSales: function () {
+    let total = 0;
+    for (let i = 0; i < hours.length; i++) {
+      const customers = randomNumber(this.minCust, this.maxCust);
+      const cookiesSold = Math.floor(customers * this.avgCookiesPerCust) + 1;
+      this.customersPerHour.push(customers);
+      this.cookiesPerHour.push(cookiesSold);
+      total += cookiesSold;
+    }
+    this.totalCookiesSold = total;
+  },
+};*/
+
+// give a random number between two numbers
+function randomNumber(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// Code-along ends
+
 const seattle = {
   location: "Seattle",
   minCust: 23,
@@ -101,12 +129,91 @@ const seattle = {
   },
 };
 
-// give a random number between two numbers
-function randomNumber(min, max) {
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+const tokyo = {
+  location: "Tokyo",
+  minCust: 3,
+  maxCust: 24,
+  avgCookiesPerCust: 1.2,
+  customersPerHour: [],
+  cookiesPerHour: [],
+  totalCookiesSold: 0,
+  calculateSales: function () {
+    let total = 0;
+    for (let i = 0; i < hours.length; i++) {
+      const customers = randomNumber(this.minCust, this.maxCust);
+      const cookiesSold = Math.floor(customers * this.avgCookiesPerCust) + 1;
+      this.customersPerHour.push(customers);
+      this.cookiesPerHour.push(cookiesSold);
+      total += cookiesSold;
+    }
+    this.totalCookiesSold = total;
+  },
+};
 
-// Code-along ends
+const dubai = {
+  location: "Dubai",
+  minCust: 11,
+  maxCust: 38,
+  avgCookiesPerCust: 3.7,
+  customersPerHour: [],
+  cookiesPerHour: [],
+  totalCookiesSold: 0,
+  calculateSales: function () {
+    let total = 0;
+    for (let i = 0; i < hours.length; i++) {
+      const customers = randomNumber(this.minCust, this.maxCust);
+      const cookiesSold = Math.floor(customers * this.avgCookiesPerCust) + 1;
+      this.customersPerHour.push(customers);
+      this.cookiesPerHour.push(cookiesSold);
+      total += cookiesSold;
+    }
+    this.totalCookiesSold = total;
+  },
+};
+
+const paris = {
+  location: "Paris",
+  minCust: 20,
+  maxCust: 38,
+  avgCookiesPerCust: 2.3,
+  customersPerHour: [],
+  cookiesPerHour: [],
+  totalCookiesSold: 0,
+  calculateSales: function () {
+    let total = 0;
+    for (let i = 0; i < hours.length; i++) {
+      const customers = randomNumber(this.minCust, this.maxCust);
+      const cookiesSold = Math.floor(customers * this.avgCookiesPerCust) + 1;
+      this.customersPerHour.push(customers);
+      this.cookiesPerHour.push(cookiesSold);
+      total += cookiesSold;
+    }
+    this.totalCookiesSold = total;
+  },
+};
+
+const lima = {
+  location: "Lima",
+  minCust: 2,
+  maxCust: 16,
+  avgCookiesPerCust: 4.6,
+  customersPerHour: [],
+  cookiesPerHour: [],
+  totalCookiesSold: 0,
+  calculateSales: function () {
+    let total = 0;
+    for (let i = 0; i < hours.length; i++) {
+      const customers = randomNumber(this.minCust, this.maxCust);
+      const cookiesSold = Math.floor(customers * this.avgCookiesPerCust) + 1;
+      this.customersPerHour.push(customers);
+      this.cookiesPerHour.push(cookiesSold);
+      total += cookiesSold;
+    }
+    this.totalCookiesSold = total;
+  },
+};
+
+const locations = [seattle, tokyo, dubai, paris, lima];
 
 // displaying the data
 
@@ -138,4 +245,6 @@ function displaySalesData(location) {
   salesEl.appendChild(article);
 }
 
-displaySalesData(seattle);
+for (let i = 0; i < locations.length; i++) {
+  displaySalesData(locations[i]);
+}
