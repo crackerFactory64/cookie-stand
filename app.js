@@ -221,11 +221,10 @@ Location.prototype.displaySalesData = function () {
     row.appendChild(cell);
   }
 
-  /* //add total sum to end of ul
-  const li = document.createElement("li");
-  li.textContent = `Total: ${this.totalCookiesSold} cookies`;
-  ul.appendChild(li);
-  article.appendChild(ul);*/
+  //add total sum to end of row
+  const totalCell = document.createElement("td");
+  totalCell.textContent = this.totalCookiesSold;
+  row.appendChild(totalCell);
 
   //finally add full row element to document
   salesTable.appendChild(row);
@@ -242,17 +241,55 @@ const locations = [seattle, tokyo, dubai, paris, lima];
 function createTableHeaders() {
   const row = document.createElement("tr");
   row.appendChild(document.createElement("td")); //adds a blank cell to the start of the header row
+
   for (let i = 0; i < hours.length; i++) {
     const header = document.createElement("th");
     header.textContent = hours[i];
     row.appendChild(header);
   }
+
+  const totalHeader = document.createElement("th");
+  totalHeader.textContent = "Total";
+  row.appendChild(totalHeader);
+
   salesTable.appendChild(row);
 }
 
-createTableHeaders();
+function generateTotals() {
+  const row = document.createElement("tr");
 
-for (let i = 0; i < locations.length; i++) {
-  locations[i].calculateSales();
-  locations[i].displaySalesData();
+  const labelCell = document.createElement("td");
+  labelCell.textContent = "Total";
+  row.appendChild(labelCell);
+
+  let finalTotal = 0;
+  for (let i = 0; i < hours.length; i++) {
+    const cell = document.createElement("td");
+    let total = 0;
+    for (let j = 0; j < locations.length; j++) {
+      total += locations[j].cookiesPerHour[i];
+    }
+    finalTotal += total;
+    cell.textContent = total;
+    row.appendChild(cell);
+  }
+
+  const finalTotalCell = document.createElement("td");
+  finalTotalCell.textContent = finalTotal;
+  row.appendChild(finalTotalCell);
+
+  salesTable.appendChild(row);
 }
+
+function renderTable() {
+  createTableHeaders();
+
+  for (let i = 0; i < locations.length; i++) {
+    locations[i].calculateSales();
+    locations[i].displaySalesData();
+  }
+
+  generateTotals();
+}
+
+renderTable();
