@@ -239,6 +239,19 @@ const lima = new Location("Lima", 2, 16, 4.6);
 
 const locations = [seattle, tokyo, dubai, paris, lima];
 
+function createTableHeaders() {
+  const row = document.createElement("tr");
+  row.appendChild(document.createElement("td")); //adds a blank cell to the start of the header row
+  for (let i = 0; i < hours.length; i++) {
+    const header = document.createElement("th");
+    header.textContent = hours[i];
+    row.appendChild(header);
+  }
+  salesTable.appendChild(row);
+}
+
+createTableHeaders();
+
 for (let i = 0; i < locations.length; i++) {
   locations[i].calculateSales();
   locations[i].displaySalesData();

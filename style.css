@@ -16,7 +16,8 @@ ul > li:last-child {
   font-weight: bold;
 }
 
-td {
+td,
+th {
   padding: 1em;
 }
 
