@@ -204,30 +204,31 @@ Location.prototype.calculateSales = function () {
   this.totalCookiesSold = total;
 };
 
+const salesTable = document.getElementById("sales");
+
 Location.prototype.displaySalesData = function () {
-  const salesEl = document.getElementById("sales");
-  const article = document.createElement("article");
+  const row = document.createElement("tr");
 
-  const h2 = document.createElement("h2");
-  h2.textContent = this.location;
-  article.appendChild(h2);
+  const locationLabel = document.createElement("td");
+  locationLabel.textContent = this.location;
+  row.appendChild(locationLabel);
 
-  //looping through cookiesPerHour to populate ul with li elements
-  const ul = document.createElement("ul");
+  //looping through cookiesPerHour to populate row with td elements
+
   for (let i = 0; i < this.cookiesPerHour.length; i++) {
-    const li = document.createElement("li");
-    li.innerText = `${hours[i]}: ${this.cookiesPerHour[i]} cookies`;
-    ul.appendChild(li);
+    const cell = document.createElement("td");
+    cell.innerText = this.cookiesPerHour[i];
+    row.appendChild(cell);
   }
 
-  //add total sum to end of ul
+  /* //add total sum to end of ul
   const li = document.createElement("li");
   li.textContent = `Total: ${this.totalCookiesSold} cookies`;
   ul.appendChild(li);
-  article.appendChild(ul);
+  article.appendChild(ul);*/
 
-  //finally add full article element to document
-  salesEl.appendChild(article);
+  //finally add full row element to document
+  salesTable.appendChild(row);
 };
 
 const seattle = new Location("Seattle", 23, 65, 6.3);
