@@ -1,6 +1,6 @@
-/* 
+/*My initial attempt 
 
-My attempt 
+
 
 const tokyo = {
   minCustomers: 3,
@@ -214,7 +214,6 @@ Location.prototype.displaySalesData = function () {
   row.appendChild(locationLabel);
 
   //looping through cookiesPerHour to populate row with td elements
-
   for (let i = 0; i < this.cookiesPerHour.length; i++) {
     const cell = document.createElement("td");
     cell.innerText = this.cookiesPerHour[i];
@@ -238,7 +237,7 @@ const lima = new Location("Lima", 2, 16, 4.6);
 
 const locations = [seattle, tokyo, dubai, paris, lima];
 
-function createTableHeaders() {
+function createTableHeaders(table) {
   const row = document.createElement("tr");
   row.appendChild(document.createElement("td")); //adds a blank cell to the start of the header row
 
@@ -248,11 +247,13 @@ function createTableHeaders() {
     row.appendChild(header);
   }
 
-  const totalHeader = document.createElement("th");
-  totalHeader.textContent = "Total";
-  row.appendChild(totalHeader);
+  if (table === salesTable) {
+    const totalHeader = document.createElement("th");
+    totalHeader.textContent = "Total";
+    row.appendChild(totalHeader);
+  }
 
-  salesTable.appendChild(row);
+  table.appendChild(row);
 }
 
 function generateTotals() {
@@ -281,8 +282,8 @@ function generateTotals() {
   salesTable.appendChild(row);
 }
 
-function renderTable() {
-  createTableHeaders();
+function renderSalesTable() {
+  createTableHeaders(salesTable);
 
   for (let i = 0; i < locations.length; i++) {
     locations[i].calculateSales();
@@ -292,4 +293,33 @@ function renderTable() {
   generateTotals();
 }
 
-renderTable();
+renderSalesTable();
+
+const staffTable = document.getElementById("staff");
+
+Location.prototype.assignStaff = function () {
+  const row = document.createElement("tr");
+
+  const locationLabel = document.createElement("td");
+  locationLabel.textContent = this.location;
+  row.appendChild(locationLabel);
+
+  for (let i = 0; i < this.cookiesPerHour.length; i++) {
+    const cell = document.createElement("td");
+    const staffNeeded = Math.floor(this.customersPerHour[i] / 20) + 1;
+    cell.innerText = staffNeeded;
+    row.appendChild(cell);
+  }
+
+  staffTable.appendChild(row);
+};
+
+function renderStaffTable() {
+  createTableHeaders(staffTable);
+
+  for (let i = 0; i < locations.length; i++) {
+    locations[i].assignStaff();
+  }
+}
+
+renderStaffTable();

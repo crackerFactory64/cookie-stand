@@ -19,6 +19,7 @@ ul > li:last-child {
 td,
 th {
   padding: 1em;
+  text-align: center;
 }
 
 tr:nth-child(even) {
