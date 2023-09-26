@@ -16,6 +16,10 @@ ul > li:last-child {
   font-weight: bold;
 }
 
+table {
+  border-spacing: 0;
+}
+
 td,
 th {
   padding: 1em;
@@ -32,4 +36,8 @@ tr:nth-child(odd) {
 
 td:first-child {
   font-weight: 600;
+}
+
+td {
+  font-size: 1.1rem;
 }
