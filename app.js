@@ -200,7 +200,6 @@ Location.prototype.calculateSales = function () {
     this.customersPerHour.push(customers);
     this.cookiesPerHour.push(cookiesSold);
     total += cookiesSold;
-    console.log(i);
   }
   this.totalCookiesSold = total;
 };
@@ -232,15 +231,14 @@ Location.prototype.displaySalesData = function () {
 };
 
 const seattle = new Location("Seattle", 23, 65, 6.3);
-seattle.calculateSales();
-seattle.displaySalesData();
+const tokyo = new Location("Tokyo", 3, 24, 1.2);
+const dubai = new Location("Dubai", 11, 38, 3.7);
+const paris = new Location("Paris", 20, 38, 2.3);
+const lima = new Location("Lima", 2, 16, 4.6);
 
-console.log(seattle);
+const locations = [seattle, tokyo, dubai, paris, lima];
 
-//const locations = [seattle, tokyo, dubai, paris, lima];
-
-// displaying the data
-
-/*for (let i = 0; i < locations.length; i++) {
-  displaySalesData(locations[i]);
-}*/
+for (let i = 0; i < locations.length; i++) {
+  locations[i].calculateSales();
+  locations[i].displaySalesData();
+}
