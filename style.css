@@ -87,8 +87,29 @@ h1 {
   width: 50%;
 }
 
+.story > .image-container {
+  display: flex;
+  justify-content: center;
+}
+
+.cookies > div {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-top: 1em;
+}
+
+.cookies img {
+  max-width: 300px;
+}
+
+.cookies img:last-of-type {
+  margin-left: auto;
+}
+
 .locations > .even-columns {
   flex-wrap: wrap;
+  justify-content: space-between;
   margin-top: 1em;
   align-items: flex-start;
 }
@@ -107,7 +128,7 @@ h1 {
   aspect-ratio: 16 /9;
   display: block;
   margin: 0;
-  max-width: 250px;
+  max-width: 200px;
 }
 
 .location__address {
@@ -133,4 +154,29 @@ li {
 
 .contact > p:not(:first-of-type)::first-line:not(a) {
   font-weight: 600;
+}
+
+.banner-ad {
+  align-items: center;
+  background-image: url(./images/fish.jpg);
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+  margin: 1em 0;
+  padding: 1em;
+}
+
+.banner-ad > h2 {
+  background-color: #333745;
+  color: #e63462;
+  font-size: 3rem;
+  line-height: 1.2;
+  width: 50%;
+}
+
+.banner-ad > img {
+  aspect-ratio: 1;
+  border: 1em dashed #e63462;
+  border-radius: 50%;
+  width: 250px;
 }
