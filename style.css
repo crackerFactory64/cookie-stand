@@ -1,43 +1,8 @@
-body {
-  font-family: Helvetica, sans-serif;
-  margin: 0 1em;
-}
-
-ul {
-  list-style: none;
-  padding-left: 0.5em;
-}
-
-ul > li {
-  margin-top: 1em;
-}
-
-ul > li:last-child {
-  font-weight: bold;
-}
-
-table {
-  border-spacing: 0;
-}
-
-td,
-th {
-  padding: 1em;
-  text-align: center;
-}
-
-tr:nth-child(even) {
-  background-color: skyblue;
-}
-
-tr:nth-child(odd) {
-  background-color: beige;
-}
-
-td:first-child {
-  font-weight: 600;
-}
-
-td {
-  font-size: 1.1rem;
+.hero {
+  align-items: center;
+  display: flex;
+  gap: 5em;
+  justify-content: center;
+  margin: 0 auto;
+  width: 90%;
 }
