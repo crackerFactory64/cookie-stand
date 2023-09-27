@@ -1,4 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Mooli&display=swap");
+* {
+  margin: 0;
+}
 
 body {
   background-color: #c7efcf;
@@ -6,6 +9,7 @@ body {
   font-family: Helvetica, sans-serif;
   font-weight: 500;
   font-size: 1.2rem;
+  margin: 0;
 }
 
 h1,
@@ -16,10 +20,20 @@ h3 {
   font-weight: 600;
 }
 
+section {
+  margin: 1em 0;
+}
+
 .container {
   margin: 0 auto;
   max-width: 1100px;
   width: 100% - 5em;
+}
+
+.even-columns {
+  display: flex;
+  align-items: center;
+  gap: 3em;
 }
 
 h1 {
@@ -48,4 +62,52 @@ h1 {
 
 .hero > * {
   width: 100%;
+}
+
+.story > div {
+  padding: 1em 0;
+}
+
+.story img {
+  width: 50%;
+}
+
+.locations > .even-columns {
+  flex-wrap: wrap;
+  margin-top: 1em;
+  align-items: flex-start;
+}
+
+.location {
+  display: flex;
+  flex-direction: column;
+  min-height: 550px;
+}
+
+.location__header {
+  margin-top: 1em;
+}
+
+.location__img {
+  aspect-ratio: 16 /9;
+  display: block;
+  margin: 0;
+  max-width: 250px;
+}
+
+.location__address {
+  margin: 1em 0;
+}
+
+.location > p:last-of-type {
+  margin-top: auto;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+li {
+  margin-top: 0.5em;
 }
