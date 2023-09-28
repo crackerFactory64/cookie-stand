@@ -259,6 +259,7 @@ function createTableHeaders(table) {
 
 function generateTotals() {
   const row = document.createElement("tr");
+  row.id = "totals";
 
   const labelCell = document.createElement("td");
   labelCell.textContent = "Total";
@@ -336,7 +337,11 @@ function handleSubmit(e) {
     parseFloat(form.averageSale.value)
   );
 
+  locations.push(newLocation);
   newLocation.calculateSales();
+  //removes previous totals from table and recalculates them
+  salesTable.removeChild(document.getElementById("totals"));
+  generateTotals();
 }
 
 locationForm.addEventListener("submit", function (e) {
