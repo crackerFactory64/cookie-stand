@@ -210,7 +210,7 @@ const salesTable = document.getElementById("sales");
 Location.prototype.displaySalesData = function () {
   const row = document.createElement("tr");
 
-  const locationLabel = document.createElement("td");
+  const locationLabel = document.createElement("th");
   locationLabel.textContent = this.location;
   row.appendChild(locationLabel);
 
@@ -301,7 +301,7 @@ const staffTable = document.getElementById("staff");
 Location.prototype.assignStaff = function () {
   const row = document.createElement("tr");
 
-  const locationLabel = document.createElement("td");
+  const locationLabel = document.createElement("th");
   locationLabel.textContent = this.location;
   row.appendChild(locationLabel);
 
@@ -345,7 +345,6 @@ function handleSubmit(e) {
   generateTotals();
 
   //calculate new location's staff requirements and rerender the staff table with new location
-  console.log(staffTable.childNodes);
 
   //empties the staff table HTML element
   while (staffTable.childNodes.length > 0) {
