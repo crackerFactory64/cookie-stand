@@ -337,11 +337,25 @@ function handleSubmit(e) {
     parseFloat(form.averageSale.value)
   );
 
-  locations.push(newLocation);
   newLocation.calculateSales();
-  //removes previous totals from table and recalculates them
+
+  //removes previous totals from table and recalculates totals
+  locations.push(newLocation);
   salesTable.removeChild(document.getElementById("totals"));
   generateTotals();
+
+  //calculate new location's staff requirements and rerender the staff table with new location
+  console.log(staffTable.childNodes);
+
+  //empties the staff table HTML element
+  while (staffTable.childNodes.length > 0) {
+    //while staff table has children remove the last child in the array
+    staffTable.removeChild(
+      staffTable.childNodes[staffTable.childNodes.length - 1]
+    );
+  }
+  //rerender staff table with new location added
+  renderStaffTable();
 }
 
 locationForm.addEventListener("submit", function (e) {
