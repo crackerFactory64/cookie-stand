@@ -19,25 +19,26 @@
         <h2>Staff Required</h2>
         <table id="staff"></table>
       </section>
-      <form>
+      <form id="location-form">
         <fieldset>
           <legend>Enter a new location</legend>
           <div>
-            <label for="location-name">Location name:</label>
-            <input type="text" id="location-name" />
+            <label for="locationName">Location name:</label>
+            <input type="text" id="locationName" />
           </div>
           <div>
-            <label for="min-customers">Minimum customers per hour:</label>
-            <input type="number" id="min-customers" />
+            <label for="minCustomers">Minimum customers per hour:</label>
+            <input type="number" id="minCustomers" />
           </div>
           <div>
-            <label for="max-customers">Maximum customers per hour:</label>
-            <input type="number" id="max-customers" />
+            <label for="maxCustomers">Maximum customers per hour:</label>
+            <input type="number" id="maxCustomers" />
           </div>
           <div>
-            <label for="average-sale">Average cookies sold per sale:</label>
-            <input type="number" id="average-sale" />
+            <label for="averageSale">Average cookies sold per sale:</label>
+            <input type="number" id="averageSale" step="0.1" />
           </div>
+          <button>Submit</button>
         </fieldset>
       </form>
     </main>

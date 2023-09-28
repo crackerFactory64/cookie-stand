@@ -202,6 +202,7 @@ Location.prototype.calculateSales = function () {
     total += cookiesSold;
   }
   this.totalCookiesSold = total;
+  this.displaySalesData();
 };
 
 const salesTable = document.getElementById("sales");
@@ -287,7 +288,6 @@ function renderSalesTable() {
 
   for (let i = 0; i < locations.length; i++) {
     locations[i].calculateSales();
-    locations[i].displaySalesData();
   }
 
   generateTotals();
@@ -323,3 +323,23 @@ function renderStaffTable() {
 }
 
 renderStaffTable();
+
+const locationForm = document.getElementById("location-form");
+
+function handleSubmit(e) {
+  const form = e.target;
+
+  const newLocation = new Location(
+    form.locationName.value,
+    parseInt(form.minCustomers.value),
+    parseInt(form.maxCustomers.value),
+    parseFloat(form.averageSale.value)
+  );
+
+  newLocation.calculateSales();
+}
+
+locationForm.addEventListener("submit", function (e) {
+  e.preventDefault();
+  handleSubmit(e);
+});
