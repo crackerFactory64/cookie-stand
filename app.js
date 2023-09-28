@@ -330,21 +330,25 @@ const locationForm = document.getElementById("location-form");
 function handleSubmit(e) {
   const form = e.target;
 
+  createNewLocation(form);
+  rerenderTables();
+}
+
+function createNewLocation(form) {
   const newLocation = new Location(
     form.locationName.value,
     parseInt(form.minCustomers.value),
     parseInt(form.maxCustomers.value),
     parseFloat(form.averageSale.value)
   );
-
-  newLocation.calculateSales();
-
-  //removes previous totals from table and recalculates totals
   locations.push(newLocation);
+  newLocation.calculateSales();
+}
+
+function rerenderTables() {
+  //removes previous totals from table and recalculates totals
   salesTable.removeChild(document.getElementById("totals"));
   generateTotals();
-
-  //calculate new location's staff requirements and rerender the staff table with new location
 
   //empties the staff table HTML element
   while (staffTable.childNodes.length > 0) {
@@ -353,7 +357,7 @@ function handleSubmit(e) {
       staffTable.childNodes[staffTable.childNodes.length - 1]
     );
   }
-  //rerender staff table with new location added
+  //rerender staff table based on current locations array
   renderStaffTable();
 }
 
