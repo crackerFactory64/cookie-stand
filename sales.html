@@ -13,10 +13,33 @@
       <a href="./index.html">Home Page</a>
     </header>
     <main>
-      <h2>Cookie Sales</h2>
-      <table id="sales"></table>
-      <h2>Staff Required</h2>
-      <table id="staff"></table>
+      <section class="tables">
+        <h2>Cookie Sales</h2>
+        <table id="sales"></table>
+        <h2>Staff Required</h2>
+        <table id="staff"></table>
+      </section>
+      <form>
+        <fieldset>
+          <legend>Enter a new location</legend>
+          <div>
+            <label for="location-name">Location name:</label>
+            <input type="text" id="location-name" />
+          </div>
+          <div>
+            <label for="min-customers">Minimum customers per hour:</label>
+            <input type="number" id="min-customers" />
+          </div>
+          <div>
+            <label for="max-customers">Maximum customers per hour:</label>
+            <input type="number" id="max-customers" />
+          </div>
+          <div>
+            <label for="average-sale">Average cookies sold per sale:</label>
+            <input type="number" id="average-sale" />
+          </div>
+        </fieldset>
+      </form>
     </main>
   </body>
 </html>
