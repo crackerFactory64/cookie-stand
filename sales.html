@@ -27,19 +27,25 @@
             <legend>Enter a new location</legend>
             <div>
               <label for="locationName">Location name:</label>
-              <input type="text" id="locationName" />
+              <input type="text" id="locationName" required minlength="1" />
             </div>
             <div>
               <label for="minCustomers">Minimum customers per hour:</label>
-              <input type="number" id="minCustomers" />
+              <input type="number" id="minCustomers" min="1" required />
             </div>
             <div>
               <label for="maxCustomers">Maximum customers per hour:</label>
-              <input type="number" id="maxCustomers" />
+              <input type="number" id="maxCustomers" min="1" required />
             </div>
             <div>
               <label for="averageSale">Average cookies sold per sale:</label>
-              <input type="number" id="averageSale" step="0.1" />
+              <input
+                type="number"
+                id="averageSale"
+                step="0.1"
+                min="0.1"
+                required
+              />
             </div>
             <button>Submit</button>
           </fieldset>
