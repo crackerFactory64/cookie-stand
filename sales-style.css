@@ -1,7 +1,31 @@
 body {
   font-family: Helvetica, sans-serif;
   margin: 0 1em;
-  padding: 3em 0;
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1600px;
+  width: 100% - 5em;
+}
+
+header > * {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+
+header a {
+  border: 2px solid black;
+  color: black;
+  padding: 1em;
+  text-decoration: none;
+}
+
+main > * {
+  align-items: center;
+  display: flex;
+  gap: 1em;
 }
 
 ul {
@@ -41,4 +65,32 @@ td:first-child {
 
 td {
   font-size: 1.1rem;
+}
+
+form > fieldset {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  padding: 1em;
+}
+
+form div {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+}
+
+form button {
+  background-color: green;
+  border: 0;
+  color: #fff;
+  font-size: 1.1rem;
+  letter-spacing: 1px;
+  max-width: 150px;
+  padding: 0.5em 0;
+  text-transform: uppercase;
+}
+
+input[type="number"] {
+  max-width: 10ch;
 }

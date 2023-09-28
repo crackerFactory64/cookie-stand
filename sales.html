@@ -9,38 +9,42 @@
   </head>
   <body>
     <header>
-      <h1>Salmon Cookies</h1>
-      <a href="./index.html">Home Page</a>
+      <div class="container">
+        <h1>Salmon Cookies</h1>
+        <a href="./index.html">Home Page</a>
+      </div>
     </header>
     <main>
-      <section class="tables">
-        <h2>Cookie Sales</h2>
-        <table id="sales"></table>
-        <h2>Staff Required</h2>
-        <table id="staff"></table>
-      </section>
-      <form id="location-form">
-        <fieldset>
-          <legend>Enter a new location</legend>
-          <div>
-            <label for="locationName">Location name:</label>
-            <input type="text" id="locationName" />
-          </div>
-          <div>
-            <label for="minCustomers">Minimum customers per hour:</label>
-            <input type="number" id="minCustomers" />
-          </div>
-          <div>
-            <label for="maxCustomers">Maximum customers per hour:</label>
-            <input type="number" id="maxCustomers" />
-          </div>
-          <div>
-            <label for="averageSale">Average cookies sold per sale:</label>
-            <input type="number" id="averageSale" step="0.1" />
-          </div>
-          <button>Submit</button>
-        </fieldset>
-      </form>
+      <div class="container">
+        <section class="tables">
+          <h2>Cookie Sales</h2>
+          <table id="sales"></table>
+          <h2>Staff Required</h2>
+          <table id="staff"></table>
+        </section>
+        <form id="location-form">
+          <fieldset>
+            <legend>Enter a new location</legend>
+            <div>
+              <label for="locationName">Location name:</label>
+              <input type="text" id="locationName" />
+            </div>
+            <div>
+              <label for="minCustomers">Minimum customers per hour:</label>
+              <input type="number" id="minCustomers" />
+            </div>
+            <div>
+              <label for="maxCustomers">Maximum customers per hour:</label>
+              <input type="number" id="maxCustomers" />
+            </div>
+            <div>
+              <label for="averageSale">Average cookies sold per sale:</label>
+              <input type="number" id="averageSale" step="0.1" />
+            </div>
+            <button>Submit</button>
+          </fieldset>
+        </form>
+      </div>
     </main>
   </body>
 </html>
