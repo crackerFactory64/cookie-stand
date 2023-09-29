@@ -1,3 +1,7 @@
+const locationForm = document.getElementById("location-form");
+const salesTable = document.getElementById("sales");
+const staffTable = document.getElementById("staff");
+
 const hours = [
   "6am",
   "7am",
@@ -42,8 +46,6 @@ Location.prototype.calculateSales = function () {
   this.totalCookiesSold = total;
   this.displaySalesData();
 };
-
-const salesTable = document.getElementById("sales");
 
 Location.prototype.displaySalesData = function () {
   const row = document.createElement("tr");
@@ -134,8 +136,6 @@ function renderSalesTable() {
 
 renderSalesTable();
 
-const staffTable = document.getElementById("staff");
-
 Location.prototype.assignStaff = function () {
   const row = document.createElement("tr");
 
@@ -163,13 +163,14 @@ function renderStaffTable() {
 
 renderStaffTable();
 
-const locationForm = document.getElementById("location-form");
-
 function handleSubmit(e) {
   const form = e.target;
-
   createNewLocation(form);
   rerenderTables();
+  //clears form after submit
+  form.querySelectorAll("input").forEach((input) => {
+    input.value = "";
+  });
 }
 
 function createNewLocation(form) {
