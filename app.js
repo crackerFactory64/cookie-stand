@@ -38,7 +38,7 @@ Location.prototype.calculateSales = function () {
   let total = 0;
   for (let i = 0; i < hours.length; i++) {
     const customers = randomNumber(this.minCust, this.maxCust);
-    const cookiesSold = Math.floor(customers * this.avgCookiesPerCust) + 1;
+    const cookiesSold = Math.floor(customers * this.avgCookiesPerCust);
     this.customersPerHour.push(customers);
     this.cookiesPerHour.push(cookiesSold);
     total += cookiesSold;
@@ -145,7 +145,7 @@ Location.prototype.assignStaff = function () {
 
   for (let i = 0; i < this.cookiesPerHour.length; i++) {
     const cell = document.createElement("td");
-    const staffNeeded = Math.floor(this.customersPerHour[i] / 20) + 1;
+    const staffNeeded = Math.ceil(this.customersPerHour[i] / 20);
     cell.innerText = staffNeeded;
     row.appendChild(cell);
   }
